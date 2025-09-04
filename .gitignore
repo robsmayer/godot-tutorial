@@ -1,3 +1,33 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Godot-specific
+.import/            # Imported asset cache (auto-regenerated)
+export.cfg          # Local export settings
+export_presets.cfg  # User-specific export presets
+
+# Mono / C# (if you enabled it)
+.mono/
+data_*/
+
+# Godot editor settings (local, not project-wide)
+.godot/             # Newer versions (Godot 4)
+.editor_settings-3.tres
+.editor_settings-4.tres
+
+# Build outputs (when exporting game builds)
+*.exe
+*.app
+*.apk
+*.aab
+*.pck
+*.zip
+*.tar.gz
+*.dmg
+
+# Logs
+*.log
