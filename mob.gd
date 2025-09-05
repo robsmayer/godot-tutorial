@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-
+# In main the chain link means instance
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var mob_types = Array($AnimatedSprite2D.sprite_frames.get_animation_names())
