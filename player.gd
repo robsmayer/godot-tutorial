@@ -9,7 +9,7 @@ var screensize
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screensize = get_viewport_rect().size
-	# hide()
+	hide()
 	
 #_process() function to define what the player will do. _process()
 # is called every frame, so we'll use it to update elements of our game, which we expect will change often
