@@ -31,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.7218, 0.940146, 0.866969, 1)
+color = Color(0.725379, 0.237886, 0.313791, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 

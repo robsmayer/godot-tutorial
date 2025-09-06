@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dep2mnobi06lc"]
+[gd_scene load_steps=9 format=3 uid="uid://dep2mnobi06lc"]
 
 [ext_resource type="Texture2D" uid="uid://b6djkatfl52le" path="res://art/playerGrey_up1.png" id="1_hqtel"]
 [ext_resource type="Script" uid="uid://dxeq2fuh2n8c7" path="res://player.gd" id="1_sweqy"]
+[ext_resource type="PackedScene" uid="uid://bsqyxp340fvqd" path="res://bullet.tscn" id="2_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://ct3227so0rqjm" path="res://art/playerGrey_up2.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://drg18a7472fhs" path="res://art/playerGrey_walk1.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://brl3kcwh88ic4" path="res://art/playerGrey_walk2.png" id="4_1jxqw"]
@@ -37,6 +38,7 @@ height = 72.0
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_sweqy")
+Bullet = ExtResource("2_2hs0m")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -50,4 +52,5 @@ frame_progress = 0.680371
 position = Vector2(1, 6)
 shape = SubResource("CapsuleShape2D_b26j0")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

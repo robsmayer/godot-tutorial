@@ -13,7 +13,8 @@ func game_over():
 	$DeathSound.play()
 	$ScoreTimer.stop()
 	$MobTimer.stop()
-	$HUD.show_game_over()	
+	$HUD.show_game_over()
+	$Player.set_process(false)           # <- blocks movement & shooting
 
 func new_game():
 	$DeathSound.stop()
@@ -21,6 +22,7 @@ func new_game():
 	get_tree().call_group("mobs", "queue_free")
 	score = 0
 	$Player.start($StartPosition.position)
+	$Player.set_process(true)            # <- allow again
 	$StartTimer.start()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
@@ -42,22 +44,18 @@ func _on_mob_timer_timeout():
 	mob_spawn_location.progress_ratio = randf()
 	
 	# Setting mob init position
-	mob.position = mob_spawn_location.position
-	
+	var mob_position = mob_spawn_location.position
 	# Set mob's direction perpendicular to
 	# the path direction
-	var direction = mob_spawn_location.rotation + PI/2
-	
 	# Add some randomness to the direction
-	direction += randf_range(-PI / 4, PI / 4)
-	mob.rotation = direction
 	
-	# Choose the velocity for the mob 
-	var velocity =  Vector2(randf_range(150.0, 250.0), 0.0)
-	mob.linear_velocity = velocity.rotated(direction)
+	var mob_direction = mob_spawn_location.rotation + PI/2
+	mob_direction +=  randf_range(-PI / 4, PI / 4) 
 	
-	# Spawn the mob by adding it to main scene
-	add_child(mob)
+	var speed = randf_range(150.0,250.0)
+	
+	add_child(mob) #Add mob to main scene
+	mob.start(mob_position,mob_direction,speed)
 	
 	
 	
