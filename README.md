@@ -5,6 +5,9 @@ This is a tutorial from the official godot4 documentation!!
 
 With some extra stuff.
 
+Explosion and bullet by:
+https://weisinx7.itch.io/fireball-explosion-sprites
+
 ## Tips from tutorial page
  - Also, under the Stretch options, set Mode to canvas_items and Aspect to keep. This ensures that the game scales consistently on different sized screens.
 
